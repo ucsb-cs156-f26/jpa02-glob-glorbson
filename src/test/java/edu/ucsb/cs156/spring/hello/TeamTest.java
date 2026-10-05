@@ -33,10 +33,21 @@ public class TeamTest {
 	t3.setName("bar");
 	t3.addMember("foo");
 
+	Team t4 = new Team();
+	t4.setName("foo");
+	t4.addMember("foo");
+
 	assertEquals(t1.hashCode(), t2.hashCode());
 	assertEquals(t1.equals(t1), true);
 	assertEquals(t1.equals(t3), false);
 	assertEquals(t1.equals(5), false);
+
+	assertEquals(t1.name.equals(t2.name), true);
+	assertEquals(t1.members.equals(t2.members), true);
+	assertEquals(t1.name.equals(t4.name), true);
+	assertEquals(t1.members.equals(t4.members), false);
+	assertEquals(t1.name.equals(t3.name), false);
+	assertEquals(t1.members.equals(t3.members), false);
     }
 
     @Test
@@ -46,8 +57,4 @@ public class TeamTest {
 	int expectedResult = 1;
 	assertEquals(expectedResult, result);
     }
-   
-    // TODO: Add additional tests as needed to get to 100% jacoco line coverage, and
-    // 100% mutation coverage (all mutants timed out or killed)
-
 }
