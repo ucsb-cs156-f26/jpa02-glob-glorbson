@@ -37,6 +37,10 @@ public class TeamTest {
 	t4.setName("foo");
 	t4.addMember("foo");
 
+	Team t5 = new Team();
+	t5.setName("bar");
+	t5.addMember("bar");
+
 	assertEquals(t1.hashCode(), t2.hashCode());
 	assertEquals(t1.equals(t1), true);
 	assertEquals(t1.equals(t3), false);
@@ -48,6 +52,8 @@ public class TeamTest {
 	assertEquals(t1.members.equals(t4.members), false);
 	assertEquals(t1.name.equals(t3.name), false);
 	assertEquals(t1.members.equals(t3.members), false);
+	assertEquals(t1.name.equals(t5.name), false);
+	assertEquals(t1.members.equals(t5.members), true);
     }
 
     @Test
