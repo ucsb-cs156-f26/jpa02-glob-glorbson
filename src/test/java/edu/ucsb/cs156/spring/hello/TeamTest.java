@@ -54,6 +54,11 @@ public class TeamTest {
 	assertEquals(t1.members.equals(t3.members), false);
 	assertEquals(t1.name.equals(t5.name), false);
 	assertEquals(t1.members.equals(t5.members), true);
+
+	assertEquals(t1.equals(t5), false);
+	assertEquals(t1.equals(t2), true);
+	assertEquals(t3.equals(t4), false);
+	assertEquals(t1.equals(null), false);
     }
 
     @Test
