@@ -62,6 +62,42 @@ public class TeamTest {
     }
 
     @Test
+    public void mutation_check_comparing_members_and_title() {
+	Team base = new Team();
+	base.setName("base-team");
+	base.addMember("User");
+
+	Team same = new Team();
+	same.setName("base-team");
+	same.addMember("User");
+
+	// TT case
+	assertEquals(base.equals(same), true);
+
+	Team member = new Team();
+	member.setName("base-team");
+	member.addMember("Bad");
+
+	// TF case
+	assertEquals(base.equals(member), false);
+
+	Team title = new Team();
+	title.setName("Bad");
+	title.addMember("User");
+
+	// FT case
+	assertEquals(base.equals(title), false);
+
+	Team bad = new Team();
+	bad.setName("Bad");
+	title.addMember("Bad");
+
+	// FF case
+	assertEquals(base.equals(bad), false);
+
+    }
+
+    @Test
     public void hashCode_and_or_equivalent_mutation_check() {
 	Team t = new Team();
 	int result = t.hashCode();
